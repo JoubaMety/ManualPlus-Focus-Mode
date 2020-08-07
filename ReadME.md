@@ -1,5 +1,5 @@
 # Manual+ Focus Mode
-This repo includes text tutorials on how to edit *almost* **any Minecraft: Java Edition Shaderpack, that has DOF.**
+This repo includes text tutorials on how to edit *almost* **any Minecraft: Java Edition GLSL Shaderpack, that has DOF.**
 Just open `.md` file of your preferred shaderpack and you can start adding `Manual+ Focus Mode`.
 
 ## How does "Manual+ Focus Mode" work?
@@ -18,9 +18,10 @@ Function would look like this:
 ```
 While `x` is now gonna become **maximum focus distance**, because `screenBrightness` uniform ranges from `0-1`, in-game it's shown in percentages, so 100% equals to 1.
 So if we add this stuff, you can now adjust focus distance more easily and don't have to recompile each time we adjust it. This will save time for both Screenshot Takers and Machinima Creators, who wanna utilize the power of focus.
-## Side Effects of Using `screenBrightness` Uniform
+## Are there any side effects of using `screenBrightness` uniform?
 There are some shaderpacks, which already utilize `screenBrightness` uniform for some elements, like for example brightness of dark areas (like in BSL v7.1.04.1). Fortunately, it's very easy to get rid of them.
 ## How would I go on actually adding "Manual+ Focus Mode" to my/other shaderpack/s?
+### **NOTE: This is just for other Minecraft Shader Developers, if there's your preferred shaderpack in Repo, use that instead.**
 If you have DOF and use `centerDepthSmooth` uniform (as almost everyone does), then it's really about replacing that with a function, or rather, adding an option between both (or three, if you count Manual) modes of Auto and Manual+.
 You can start by adding this piece of code at the start of (or before you use `centerDepthSmooth` uniform) DOF function.
 ```glsl
@@ -55,3 +56,5 @@ option.CAMERA_FOCAL_POINT.comment=Distance the camera tries to focus at when the
 suffix.CAMERA_FOCAL_POINT= m
 ```
 **Be aware that if you do use `screenBrightness` uniform in other stuff, it WILL conflict, so you will want to disable that stuff (removing them altogether or making `if` statements).**
+## Special Thanks to...
+* [McHorse](https://twitter.com/McHorsy) for **making my (and also others) dream of adjustable focus distance while recording Minecraft Machinimas/Cinematic Videos COME TRUE** by using my solution to the problem of Static Focus Distance/Auto Focus.
