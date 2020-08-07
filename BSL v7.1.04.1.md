@@ -88,8 +88,9 @@ option.DOF_MANUAL_FOCUS_DISTANCE.comment=Distance the camera tries to focus at w
 suffix.DOF_MANUAL_FOCUS_DISTANCE= m
 ```
 
-## FINALE
+## FINALE (Almost)
 And that's it. Now you can enjoy Manual+ Focus Mode.  
 Though there's one thing, this only applies to Overworld dimension, meaning it won't work in other dimensions like Nether and End.
 
-## Optional
+## Optional - Nether and End Brightness "Fix"
+Soon™️
