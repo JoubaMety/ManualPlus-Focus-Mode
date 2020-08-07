@@ -90,7 +90,7 @@ suffix.DOF_MANUAL_FOCUS_DISTANCE= m
 
 ## FINALE (Almost)
 And that's it. Now you can enjoy Manual+ Focus Mode.  
-Though there's one thing, this only applies to Overworld dimension, meaning it won't work in other dimensions like Nether and End.
+Though there's one thing, this only applies to Overworld dimension, meaning it won't work in other dimensions like Nether and End, so if you want to use this also in Nether/End, then use Optional Fix below.
 
 ## Optional - Nether and End Brightness "Fix"
 Soon™️
