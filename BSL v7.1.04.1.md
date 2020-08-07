@@ -1,8 +1,9 @@
-# BSL v7.1.04.1
+# BSL v7.1.04.1 - Manual+ Focus Mode Tutorial
+## Part 0/7
 If you're new to this stuff, I recommend using [Notepad++](https://notepad-plus-plus.org/) as it's lightweight and also it just works.  
   
 Before you start, don't forget to unzip the shaderpack to its' folder. So file path is gonna be like `.minecraft\shaderpacks\BSL_v7.1.04.1\`.
-## 1/7  `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\lib\post\depthOfField.glsl`
+## Part 1/7  `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\lib\post\depthOfField.glsl`
 * In LINE 78, paste this piece of code:
 ```glsl
     #define getDepthExp(x) ( (far * (x - near)) / (x * (far - near)) )
@@ -25,26 +26,26 @@ Before you start, don't forget to unzip the shaderpack to its' folder. So file p
         float minlight = (0.009 + 0.001)*(1.0-eBS);
 ```
 replace `centerDepthSmooth` with `focus`
-## 2/7  `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\world0\composite3.fsh`
+## Part 2/7  `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\world0\composite3.fsh`
 * Below LINE 19, add this:
 ```glsl
 uniform float screenBrightness;
 uniform float far;
 uniform float near;
 ```
-## 3/7  `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\world0\gbuffers_basic.fsh`
+## Part 3/7  `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\world0\gbuffers_basic.fsh`
 * In LINE 149 or:
 ```glsl
 		float minlight = (0.009*screenBrightness + 0.001)*(1.0-eBS);
 ```
 remove `*screenBrightness`
-## 4/7  `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\world0\gbuffers_basic.vsh`
+## Part 4/7  `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\world0\gbuffers_basic.vsh`
 * In LINE 242, or:
 ```glsl
 		float minlight = (0.009*screenBrightness + 0.001)*(1.0-eBS);
 ```
 remove `*screenBrightness`
-## 5/7  `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\world0\gbuffers_terrain.fsh`
+## Part 5/7  `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\world0\gbuffers_terrain.fsh`
 * In LINE 329, or:
 ```glsl
 		float minlight = (0.009*screenBrightness + 0.001)*floor(color.a*4.0+0.999)/4.0*(1.0-eBS);
@@ -55,7 +56,7 @@ remove `*screenBrightness`
 		float minlight = (0.009*screenBrightness + 0.001)*(1.0-eBS);
 ```
 remove `*screenBrightness`
-## 6/7  `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\shaders.properties`
+## Part 6/7  `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\shaders.properties`
 * In LINE 32, or:
 ```properties
 screen.PostProcess=<empty> <empty> DOF DOFStrength MotionBlur MotionBlurStrength Bloom BloomStrength LensFlare LensFlareStrength AA Sharpen AutoExposure [ColorGrading] Vignette DirtyLens
@@ -74,8 +75,7 @@ add this:
 DOF_MANUAL_FOCUS_DISTANCE
 ```
 **DON'T FORGET TO MAKE A SPACE BEFORE THIS!**
-## 6/7  
-## `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\lang\en_US.lang`
+## Part 7/7  `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\lang\en_US.lang`
 At the end of this file (or LINE 475), add a new line by pressing `Enter` and add this:
 ```properties
 option.DOF_MODE=Camera Focus Mode
