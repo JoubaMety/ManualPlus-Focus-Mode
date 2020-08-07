@@ -26,7 +26,7 @@ Before you start, don't forget to unzip the shaderpack to its' folder. So file p
         float minlight = (0.009 + 0.001)*(1.0-eBS);
 ```
 replace `centerDepthSmooth` with `focus`
-## Part 2/7  `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\world0\composite3.fsh`
+## Part 2/7     `.minecraft\shaderpacks\BSL_v7.1.04.1\shaders\world0\composite3.fsh`
 * Below LINE 19, add this:
 ```glsl
 uniform float screenBrightness;
