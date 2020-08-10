@@ -3,6 +3,8 @@
 If you're new to this stuff, I recommend using [Notepad++](https://notepad-plus-plus.org/) as it's lightweight and also it just works.  
   
 Before you start, don't forget to unzip the shaderpack to its' folder. So file path is gonna be like `.minecraft\shaderpacks\BSL_v7.1.04.1\`.
+  
+You can download shaderpack [here](https://www.curseforge.com/minecraft/customization/chocapic13-shaders/download/2901475).
 ## Part 1/7  `BSL_v7.1.04.1\shaders\lib\post\depthOfField.glsl`
 * In LINE 78, paste this piece of code:
 ```glsl

@@ -1,9 +1,9 @@
 # Chocapic13 V8 - Ultra (CurseForge)
-## Part 0/
+## Part 0/2
 If you're new to this stuff, I recommend using [Notepad++](https://notepad-plus-plus.org/) as it's lightweight and also it just works.  
   
 Before you start, don't forget to unzip the shaderpack to its' folder. So file path is gonna be like `.minecraft\shaderpacks\Chocapic13_V8_Ultra\`.
-
+  
 You can download shaderpack [here](https://www.curseforge.com/minecraft/customization/chocapic13-shaders/download/2901475).
 
 ## Part 1/2 `Chocapic13_V8_Ultra\shaders\composite15.fsh`
