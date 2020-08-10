@@ -16,7 +16,7 @@ You can download shaderpack [here](https://www.curseforge.com/minecraft/customiz
 uniform float screenBrightness;
 uniform float centerDepthSmooth;
 ```
-* From LINE 432-436, or:
+* From LINE 432 to LINE 436, or:
 ```glsl
         #ifdef AUTOFOCUS
 			float focus = ld(texture2D(depthtex0, vec2(0.5)).r)*far;
