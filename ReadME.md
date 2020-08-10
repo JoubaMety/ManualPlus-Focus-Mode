@@ -1,28 +1,35 @@
 # Manual+ Focus Mode
-This repo includes text tutorials on how to edit *almost* **any Minecraft: Java Edition GLSL Shaderpack, that has DOF.**
+This repo includes text tutorials on how to edit *almost* **any Minecraft: Java Edition GLSL Shaderpack, that has DOF.**<br>
 Just open `.md` file of your preferred shaderpack and you can start adding `Manual+ Focus Mode`.
 
+## What does each Focus Mode mean?
+* `Auto` will focus at the object closest to the camera center.
+  
+* `Manual` will focus at the distance set by `Manual Focus Distance` Setting.
+  
+* `Manual+` will focus at the distance set by `Manual Focus Distance` Setting, and that distance is multiplied by `Brightness` setting in Video Settings. 100% of Brightness will multiply distance by 1; 50% of Brightness will multiply distance by 0.5, meaning it will cut distance in half.
 ## How does "Manual+ Focus Mode" work?
-Basically, almost every shaderpack uses [`centerDepthSmooth` uniform](https://github.com/sp614x/optifine/blob/master/OptiFineDoc/doc/shaders.txt#L175) as focus point, that means it makes Depthmap based on where is your crosshair aiming at or by sampling `depthtex0` (like in Chocapic13 V8 Ultra).
+Basically, almost every shaderpack uses [`centerDepthSmooth` uniform](https://github.com/sp614x/optifine/blob/master/OptiFineDoc/doc/shaders.txt#L175) as focus point, that means it makes Depthmap based on where is your crosshair aiming at<br>or by sampling `depthtex0` (like in Chocapic13 V8 Ultra).
 Based on that, we can also create our own focus point with this function:
 ```glsl
 ( (far * (x - near)) / (x * (far - near))
 ```
-It's basically gonna replicate `centerDepthSmooth` uniform, but we can set the focus distance (in meters) with `x`.
-*Some shaderpacks already do these like for example Continuum 2.0/2.1 and Chocapic V8.1 (Atleast in Ultra and High versions).*
-But the problem is that everytime we wanna change focus distance, we gotta go to Shader Settings and set it there, not only that but it will also recompile the shaderpack each time we click Done, which can slow down things a lot.
-My solution to this is using [`screenBrightness` uniform](https://github.com/sp614x/optifine/blob/master/OptiFineDoc/doc/shaders.txt#L173). If we use that uniform to multiply focus distance, we can change focus distance just by using slider or [McHorse's Aperture Mod's](https://www.curseforge.com/minecraft/mc-mods/aperture) Keyframe Feature (Feature is currently still only for Developer Build Testers).
+It's basically gonna replicate `centerDepthSmooth` uniform, but we can set the focus distance (in meters) with `x`.<br>
+*Some shaderpacks already do these like for example Continuum 2.0/2.1 and Chocapic V8.1 (Atleast in Ultra and High versions).*<br><br>
+But the problem is that everytime we wanna change focus distance, we gotta go to Shader Settings and set it there, not only that but it will also recompile the shaderpack each time we click Done, which can slow down things a lot.<br><br>
+My solution to this is using [`screenBrightness` uniform](https://github.com/sp614x/optifine/blob/master/OptiFineDoc/doc/shaders.txt#L173).<br>If we use that uniform to multiply focus distance, we can change focus distance just by using slider or [McHorse's Aperture Mod's](https://www.curseforge.com/minecraft/mc-mods/aperture) Keyframe Feature (Feature is currently still only for Developer Build Testers).
 Function would look like this:
 ```glsl
 ( (far * ( [ x * screenBrightness ] - near)) / ( [ x * screenBrightness ] * (far - near))
 ```
-While `x` is now gonna become **maximum focus distance**, because `screenBrightness` uniform ranges from `0-1`, in-game it's shown in percentages, so 100% equals to 1.
+While `x` is now gonna become **maximum focus distance**, because `screenBrightness` uniform ranges from `0-1`, in-game it's shown in percentages, so 100% equals to 1.<br><br>
 So if we add this stuff, you can now adjust focus distance more easily and don't have to recompile each time we adjust it. This will save time for both Screenshot Takers and Machinima Creators, who wanna utilize the power of focus.
 ## Are there any side effects of using `screenBrightness` uniform?
 There are some shaderpacks, which already utilize `screenBrightness` uniform for some elements, like for example brightness of dark areas (like in BSL v7.1.04.1). Fortunately, it's very easy to get rid of them.
 ## How would I go on actually adding "Manual+ Focus Mode" to my/other shaderpack/s?
 ### **NOTE: This is just for other Minecraft Shader Developers, if there's your preferred shaderpack in Repo, use that instead.**
-If you have DOF and use `centerDepthSmooth` uniform (as almost everyone does), then it's really about replacing that with a function, or rather, adding an option between both (or three, if you count Manual) modes of Auto and Manual+.
+If you have DOF and use `centerDepthSmooth` uniform (as almost everyone does),<br> then it's really about replacing that with a function, or rather,<br>adding an option between both (or three, if you count Manual) modes of Auto and Manual+.
+<br> <br>
 You can start by adding this piece of code at the start of (or before you use `centerDepthSmooth` uniform) DOF function.
 ```glsl
     #define getDepthExp(x) ( (far * (x - near)) / (x * (far - near)) )
@@ -40,8 +47,7 @@ You can start by adding this piece of code at the start of (or before you use `c
     focus = getDepthExp(DOF_MANUAL_FOCUS_DISTANCE * screenBrightness);
     #endif
 ```
-A bit of explanation, if you didn't notice what are `#define`s about: `DOF_MODE` stands for Focus Mode, so `0` is `Auto`, `1` is `Manual` and `2` is `Manual+`. `DOF_MANUAL_FOCUS_DISTANCE` is either Manual Focus Distance or Manual+ Maximum Focus Distance.
-If you added this, then only left things to do is replace `centerDepthSmooth` in DOF function and also adding uniforms to the top of shader programs, where you use DOF function. These are all the uniforms you will need to add, like this:
+If you added that, then only left things to do is replace `centerDepthSmooth` in DOF function and also adding uniforms to the top of shader programs, where you use DOF function. These are all the uniforms you will need to add, like this:
 ```glsl
 uniform float screenBrightness;
 uniform float far;
@@ -57,4 +63,4 @@ suffix.CAMERA_FOCAL_POINT= m
 ```
 **Be aware that if you do use `screenBrightness` uniform in other stuff, it WILL conflict, so you will want to disable that stuff (removing them altogether or making `if` statements).**
 ## Special Thanks to...
-* [McHorse](https://twitter.com/McHorsy) for **making my (and also others) dream of adjustable focus distance while recording Minecraft Machinimas/Cinematic Videos COME TRUE** by using my solution to the problem of Static Focus Distance/Auto Focus.
+* [McHorse](https://twitter.com/McHorsy) for **making my (and also others) dream of adjustable focus distance while recording Minecraft Machinimas/Cinematic Videos COME TRUE**<br> by using my solution to the problem of Static Focus Distance/Auto Focus.
