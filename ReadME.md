@@ -3,7 +3,7 @@ This repo includes text tutorials on how to edit *almost* **any Minecraft: Java 
 Just open `.md` file of your preferred shaderpack and you can start adding `Manual+ Focus Mode`.
 
 ## How does "Manual+ Focus Mode" work?
-Basically, every shaderpack I've seen uses [`centerDepthSmooth` uniform](https://github.com/sp614x/optifine/blob/master/OptiFineDoc/doc/shaders.txt#L175) as focus point, that means it makes Depthmap based on where is your crosshair aiming at.
+Basically, almost every shaderpack uses [`centerDepthSmooth` uniform](https://github.com/sp614x/optifine/blob/master/OptiFineDoc/doc/shaders.txt#L175) as focus point, that means it makes Depthmap based on where is your crosshair aiming at or by sampling `depthtex0` (like in Chocapic13 V8 Ultra).
 Based on that, we can also create our own focus point with this function:
 ```glsl
 ( (far * (x - near)) / (x * (far - near))
