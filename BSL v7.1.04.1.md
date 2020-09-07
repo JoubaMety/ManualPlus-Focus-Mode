@@ -78,14 +78,14 @@ DOF_MANUAL_FOCUS_DISTANCE
 ```
 **DON'T FORGET TO MAKE A SPACE BEFORE THIS!**
 ## Part 7/7  `BSL_v7.1.04.1\shaders\lang\en_US.lang`
-At the end of this file (or LINE 475), add a new line by pressing `Enter` and add this:
+At the end of this file (or LINE 475), select the end of file/end of last line and add a new line by pressing `Enter` and add this:
 ```properties
-option.DOF_MODE=Camera Focus Mode
+option.DOF_MODE=DoF Focus Mode
 option.DOF_MODE.comment=Focus mode of the camera. 'Auto' focuses on whatever the player is looking at. 'Manual' allows the player to set the distance the camera tries to focus at in meters. 'Manual+' allows to adjust focal point with Brightness value in Video Settings.
 value.DOF_MODE.0=Auto
 value.DOF_MODE.1=Manual
 value.DOF_MODE.2=Manual+
-option.DOF_MANUAL_FOCUS_DISTANCE=Camera Focal Point
+option.DOF_MANUAL_FOCUS_DISTANCE=DoF Focus Distance
 option.DOF_MANUAL_FOCUS_DISTANCE.comment=Distance the camera tries to focus at when the camera is set to manual focus mode.
 suffix.DOF_MANUAL_FOCUS_DISTANCE= m
 ```
