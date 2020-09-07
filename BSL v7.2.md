@@ -53,7 +53,7 @@ delete `* screenbrightness` OR replace that line with this:
 ```glsl
     float minLighting = (0.009 + 0.001) * (1.0 - eBS);
 ```
-## Part 3/4
+## Part 3/4 `BSL_v7.2/shaders/shaders.properties`
 * In LINE 31, or:
 ```properties
 screen.POST_PROCESS=<empty> <empty> DOF DOF_STRENGTH MOTION_BLUR MOTION_BLUR_STRENGTH BLOOM BLOOM_STRENGTH LENS_FLARE LENS_FLARE_STRENGTH AA SHARPEN AUTO_EXPOSURE [COLOR_GRADING] VIGNETTE DIRTY_LENS RETRO_FILTER
@@ -78,7 +78,7 @@ DOF_MANUAL_FOCUS_DISTANCE
 ```
 **DON'T FORGET A SPACE BEFORE SETTING FOR SEPARATING!**
 
-## Part 4/4 `BSL_v7.2/lang/en_US.lang`
+## Part 4/4 `BSL_v7.2/shaders/lang/en_US.lang`
 At the end of this file (or LINE 550), select the end of file/end of last line and add a new line by pressing `Enter` and add this:
 ```properties
 screen.DOF=DoF Settings
