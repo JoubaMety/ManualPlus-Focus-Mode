@@ -25,7 +25,7 @@ You can download shaderpack [here](https://www.curseforge.com/minecraft/customiz
 ```
 * In LINE 93-94 or where's this located:
 ```glsl
-        float minlight = (0.009 + 0.001)*(1.0-eBS);
+	float coc = max(abs(z-centerDepthSmooth)*DOFStrength-0.0001,0.0);
 ```
 replace `centerDepthSmooth` with `focus`
 ## Part 2/7  `BSL_v7.1.04.1\shaders\world0\composite3.fsh`
