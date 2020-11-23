@@ -1,5 +1,5 @@
 # Sildurs Vibrant Shaders v1.281 Extreme-VL - Manual+ Focus Mode Tutorial
-## Part 0/7
+## Part 0/4
 If you're new to this stuff, I recommend using [Notepad++](https://notepad-plus-plus.org/) as it's lightweight and also it just works.  
   
 Before you start, don't forget to unzip the shaderpack to its' folder. So file path is gonna be like `.minecraft\shaderpacks\Sildurs Vibrant Shaders v1.281 Extreme-VL\`.
