@@ -41,7 +41,7 @@ uniform float near;
 		float minlight = (0.009*screenBrightness + 0.001)*(1.0-eBS);
 ```
 remove `*screenBrightness`
-## Part 4/7  `BSL_v7.1.04.1\shaders\world0\gbuffers_basic.vsh`
+## Part 4/7  `BSL_v7.1.04.1\shaders\world0\gbuffers_entities.fsh`
 * In LINE 242, or:
 ```glsl
 		float minlight = (0.009*screenBrightness + 0.001)*(1.0-eBS);
